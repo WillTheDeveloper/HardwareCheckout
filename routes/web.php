@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/inventory', [Inventory::class, 'view'])->name('inventory');
+Route::post('/inventory/request/{id}', [Requests::class, 'make'])->name('inventory.request');
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');
 
