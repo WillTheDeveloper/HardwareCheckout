@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Request extends Model
 {
     use HasFactory;
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Inventory()
+    {
+        return $this->belongsTo(Inventory::class);
+    }
 }
