@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Inventory;
 use App\Http\Controllers\Requests;
+use App\Http\Controllers\Users;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([
@@ -24,3 +25,4 @@ Route::post('/inventory/request/{id}', [Requests::class, 'make'])->name('invento
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');
 
+Route::get('/users', [Users::class, 'view'])->name('users.view');
