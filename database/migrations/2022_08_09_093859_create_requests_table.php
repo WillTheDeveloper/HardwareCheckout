@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('inventory_id');
             $table->integer('quantity');
             $table->string('note');
+            $table->enum('status', ["ACTIVE", "PENDING", "DECLINED", "LATE", "ACCEPTED", "RETURNED"]);
             $table->timestamps();
         });
     }
