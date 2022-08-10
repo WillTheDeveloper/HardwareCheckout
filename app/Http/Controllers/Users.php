@@ -13,4 +13,11 @@ class Users extends Controller
             'data' => User::query()->paginate(15)
         ]);
     }
+
+    public function details($id)
+    {
+        return view('userdetails', [
+            'data' => User::query()->findOrFail($id)
+        ]);
+    }
 }

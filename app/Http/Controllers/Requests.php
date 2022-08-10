@@ -28,4 +28,9 @@ class Requests extends Controller
         );
         return redirect(route('requests'));
     }
+
+    public function manage()
+    {
+        return view('allrequests');
+    }
 }

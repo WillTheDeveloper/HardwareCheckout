@@ -13,4 +13,9 @@ class Inventory extends Controller
             'cat' => \App\Models\Category::query()->get('*')
         ]);
     }
+
+    public function manage()
+    {
+        return view('allinventory');
+    }
 }

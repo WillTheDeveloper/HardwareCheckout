@@ -23,7 +23,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('requests') }}" :active="request()->routeIs('requests')">
-                        {{ __('Requests') }}
+                        {{ __('My requests') }}
                     </x-jet-nav-link>
                 </div>
                 @if(auth()->user()->is_admin)
@@ -32,7 +32,18 @@
                             {{ __('Users') }}
                         </x-jet-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('inventory.manage') }}" :active="request()->routeIs('inventory.manage')">
+                            {{ __('All inventory') }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('requests.manage') }}" :active="request()->routeIs('requests.manage')">
+                            {{ __('All requests') }}
+                        </x-jet-nav-link>
+                    </div>
                 @endif
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
