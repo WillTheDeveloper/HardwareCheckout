@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('inventory_id');
             $table->integer('quantity');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->enum('status', ["ACTIVE", "PENDING", "DECLINED", "LATE", "ACCEPTED", "RETURNED"]);
             $table->timestamps();
         });
