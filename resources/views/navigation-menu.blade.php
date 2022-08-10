@@ -26,6 +26,13 @@
                         {{ __('Requests') }}
                     </x-jet-nav-link>
                 </div>
+                @if(auth()->user()->is_admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('users.view') }}" :active="request()->routeIs('users.view')">
+                            {{ __('Users') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -161,6 +168,13 @@
                 {{ __('Requests') }}
             </x-jet-responsive-nav-link>
         </div>
+        @if(auth()->user()->is_admin)
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('users.view') }}" :active="request()->routeIs('users.view')">
+                {{ __('Users') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endif()
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
