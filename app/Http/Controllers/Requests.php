@@ -31,6 +31,10 @@ class Requests extends Controller
 
     public function manage()
     {
-        return view('allrequests');
+        return view('allrequests', [
+            'active' => \App\Models\Request::query()->where('status', 'ACTIVE')->orderByDesc('created_at')->get('*'),
+            'pending' => \App\Models\Request::query()->where('status', 'PENDING')->orderByDesc('created_at')->get('*'),
+            'late' => \App\Models\Request::query()->where('status', 'LATE')->orderByDesc('created_at')->get('*')
+        ]);
     }
 }
