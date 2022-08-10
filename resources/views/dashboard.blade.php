@@ -21,7 +21,11 @@
 
                     <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
                         <dt class="text-sm font-medium text-gray-500 truncate">Late return rate (May affect future requests)</dt>
-                        <dd class="mt-1 text-3xl font-semibold text-gray-900">{{auth()->user()->Request()->where('status', 'LATE')->count() / auth()->user()->Request()->count()  * 100}}%</dd>
+                        @if(auth()->user()->Request()->exists())
+                            <dd class="mt-1 text-3xl font-semibold text-gray-900">{{auth()->user()->Request()->where('status', 'LATE')->count() / auth()->user()->Request()->count()  * 100}}%</dd>
+                        @else
+                            <dd class="mt-1 text-3xl font-semibold text-gray-900">N/A</dd>
+                        @endif
                     </div>
                 </dl>
             </div>
