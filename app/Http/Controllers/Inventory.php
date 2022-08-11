@@ -16,6 +16,8 @@ class Inventory extends Controller
 
     public function manage()
     {
-        return view('allinventory');
+        return view('allinventory', [
+            'data' => \App\Models\Inventory::query()->orderByDesc('name')->paginate(15),
+        ]);
     }
 }
