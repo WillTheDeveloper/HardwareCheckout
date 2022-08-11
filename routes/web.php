@@ -28,6 +28,9 @@ Route::get('/requests', [Requests::class, 'view'])->name('requests');
 Route::get('/requests/manage', [Requests::class, 'manage'])->name('requests.manage');
 Route::post('/requests/{id}/approve', [Requests::class, 'approve'])->name('requests.approve');
 Route::post('/requests/{id}/reject', [Requests::class, 'reject'])->name('requests.reject');
+Route::post('/requests/{id}/late', [Requests::class, 'late'])->name('requests.late');
+Route::post('/requests/{id}/activate', [Requests::class, 'active'])->name('requests.activate');
+Route::post('/requests/{id}/cancel', [Requests::class, 'cancel'])->name('requests.cancel');
 Route::get('/requests/{id}/edit', [Requests::class, 'edit'])->name('requests.edit');
 
 Route::get('/users', [Users::class, 'view'])->name('users.view');

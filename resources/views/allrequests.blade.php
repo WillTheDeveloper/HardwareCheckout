@@ -28,6 +28,32 @@
                                     </thead>
                                     <tbody class="bg-white">
                                     <tr class="border-t border-gray-200">
+                                        <th colspan="5" scope="colgroup" class="bg-purple-50 px-4 py-2 text-left text-sm font-semibold text-purple-900 sm:px-6">Accepted (Awaiting collection)</th>
+                                    </tr>
+
+                                    @foreach($accepted as $q)
+                                        <tr class="border-t border-gray-300">
+                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$q->Inventory->name}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$q->User->name}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$q->note}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$q->quantity}}</td>
+                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                <span class="relative z-0 inline-flex shadow-sm rounded-md">
+                                                <form method="post" action="{{route('requests.activate', $q->id)}}">
+                                                    @csrf
+                                                    <button type="submit" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Collected</button>
+                                                </form>
+                                                <form method="post" action="{{route('requests.cancel', $q->id)}}">
+                                                    @csrf
+                                                    <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Cancelled</button>
+                                                </form>
+                                                <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Edit</button>
+                                            </span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                    <tr class="border-t border-gray-200">
                                         <th colspan="5" scope="colgroup" class="bg-red-50 px-4 py-2 text-left text-sm font-semibold text-red-900 sm:px-6">Late</th>
                                     </tr>
 

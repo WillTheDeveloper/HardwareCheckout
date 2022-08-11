@@ -63,7 +63,11 @@
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$d->quantity}}</td>
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                                            @if($d->status != "ACCEPTED")
+                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            @else
+                                                <p class="text-red-600">Activated upon collection</p>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

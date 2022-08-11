@@ -34,7 +34,8 @@ class Requests extends Controller
         return view('allrequests', [
             'active' => \App\Models\Request::query()->where('status', 'ACTIVE')->orderByDesc('created_at')->get('*'),
             'pending' => \App\Models\Request::query()->where('status', 'PENDING')->orderByDesc('created_at')->get('*'),
-            'late' => \App\Models\Request::query()->where('status', 'LATE')->orderByDesc('created_at')->get('*')
+            'late' => \App\Models\Request::query()->where('status', 'LATE')->orderByDesc('created_at')->get('*'),
+            'accepted' => \App\Models\Request::query()->where('status', 'ACCEPTED')->orderByDesc('created_at')->get('*')
         ]);
     }
 
@@ -55,6 +56,17 @@ class Requests extends Controller
             ->update(
                 [
                     'status' => 'DECLINED'
+                ]
+            );
+        return redirect(route('requests.manage'));
+    }
+
+    public function active($id)
+    {
+        $r = \App\Models\Request::query()->findOrFail($id)
+            ->update(
+                [
+                    'status' => 'ACTIVE'
                 ]
             );
         return redirect(route('requests.manage'));
