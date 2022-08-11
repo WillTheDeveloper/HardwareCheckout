@@ -37,4 +37,26 @@ class Requests extends Controller
             'late' => \App\Models\Request::query()->where('status', 'LATE')->orderByDesc('created_at')->get('*')
         ]);
     }
+
+    public function approve($id)
+    {
+        $r = \App\Models\Request::query()->findOrFail($id)
+            ->update(
+                [
+                    'status' => 'ACCEPTED'
+                ]
+            );
+        return redirect(route('requests.manage'));
+    }
+
+    public function reject($id)
+    {
+        $r = \App\Models\Request::query()->findOrFail($id)
+            ->update(
+                [
+                    'status' => 'DECLINED'
+                ]
+            );
+        return redirect(route('requests.manage'));
+    }
 }

@@ -26,6 +26,9 @@ Route::post('/inventory/request/{id}', [Requests::class, 'make'])->name('invento
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');
 Route::get('/requests/manage', [Requests::class, 'manage'])->name('requests.manage');
+Route::post('/requests/{id}/approve', [Requests::class, 'approve'])->name('requests.approve');
+Route::post('/requests/{id}/reject', [Requests::class, 'reject'])->name('requests.reject');
+Route::get('/requests/{id}/edit', [Requests::class, 'edit'])->name('requests.edit');
 
 Route::get('/users', [Users::class, 'view'])->name('users.view');
 Route::get('/users/{id}/details', [Users::class, 'details'])->name('users.details');
