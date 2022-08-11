@@ -56,6 +56,9 @@
                                                 @case("LATE")
                                                     <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Late</span>
                                                     @break("LATE")
+                                                @case("ACCEPTED")
+                                                    <span class="inline-flex rounded-full bg-purple-100 px-2 text-xs font-semibold leading-5 text-purple-800">Accepted</span>
+                                                @break("ACCEPTED")
                                             @endswitch
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$d->quantity}}</td>
