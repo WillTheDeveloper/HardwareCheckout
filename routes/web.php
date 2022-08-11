@@ -31,7 +31,9 @@ Route::post('/requests/{id}/reject', [Requests::class, 'reject'])->name('request
 Route::post('/requests/{id}/late', [Requests::class, 'late'])->name('requests.late');
 Route::post('/requests/{id}/activate', [Requests::class, 'active'])->name('requests.activate');
 Route::post('/requests/{id}/cancel', [Requests::class, 'cancel'])->name('requests.cancel');
+Route::get('/requests/{id}/returned', [Requests::class, 'returned'])->name('requests.returned');
 Route::get('/requests/{id}/edit', [Requests::class, 'edit'])->name('requests.edit');
+
 
 Route::get('/users', [Users::class, 'view'])->name('users.view');
 Route::get('/users/{id}/details', [Users::class, 'details'])->name('users.details');

@@ -81,7 +81,17 @@
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->note}}</td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->quantity}}</td>
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <span class="relative z-0 inline-flex shadow-sm rounded-md">
+                                                <form method="post" action="{{route('requests.returned', $a->id)}}">
+                                                    @csrf
+                                                    <button type="submit" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Returned</button>
+                                                </form>
+                                                <form method="post" action="{{route('requests.late', $a->id)}}">
+                                                    @csrf
+                                                    <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Late</button>
+                                                </form>
+                                                <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Edit</button>
+                                            </span>
                                         </td>
                                     </tr>
                                     @endforeach

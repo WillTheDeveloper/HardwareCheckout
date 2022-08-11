@@ -71,4 +71,26 @@ class Requests extends Controller
             );
         return redirect(route('requests.manage'));
     }
+
+    public function late($id)
+    {
+        $r = \App\Models\Request::query()->findOrFail($id)
+            ->update(
+                [
+                    'status' => 'LATE'
+                ]
+            );
+        return redirect(route('requests.manage'));
+    }
+
+    public function returned($id)
+    {
+        $r = \App\Models\Request::query()->findOrFail($id)
+            ->update(
+                [
+                    'status' => 'RETURNED'
+                ]
+            );
+        return redirect(route('requests.manage'));
+    }
 }
