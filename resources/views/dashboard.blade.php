@@ -29,6 +29,45 @@
                     </div>
                 </dl>
             </div>
+
+            <!-- This example requires Tailwind CSS v2.0+ -->
+            <div class="px-4 sm:px-6 lg:px-8">
+                <div class="sm:flex sm:items-center pt-6">
+                    <div class="sm:flex-auto">
+                        <h1 class="text-xl font-semibold text-gray-900">Currently borrowing</h1>
+                    </div>
+                </div>
+                <div class="mt-2 flex flex-col">
+                    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                            <table class="min-w-full divide-y divide-gray-300">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 md:pl-0">Item</th>
+                                    <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Quantity</th>
+                                    <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Requested</th>
+                                    <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                @foreach(auth()->user()->Request()->where('status', 'ACTIVE')->orWhere('status', 'LATE')->get('*') as $r)
+                                <tr>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0">{{$r->Inventory->name}}</td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->quantity}}</td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->created_at->diffForHumans()}}</td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->status}}</td>
+                                </tr>
+                                @endforeach
+
+                                <!-- More people... -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </x-app-layout>
