@@ -41,7 +41,7 @@ class Requests extends Controller
         ]);
     }
 
-    public function approve($id, Request $request)
+    public function approve($id)
     {
         $r = \App\Models\Request::query()->findOrFail($id)
             ->update(
