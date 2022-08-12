@@ -13,6 +13,7 @@ class Requests extends Controller
         return view('requests', [
             'data' => \App\Models\Request::query()
                 ->where('user_id', auth()->id())
+                ->orderByDesc('created_at')
                 ->paginate(10)
         ]);
     }
