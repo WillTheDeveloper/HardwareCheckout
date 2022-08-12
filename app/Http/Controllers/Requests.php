@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RequestApproved;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Requests extends Controller
 {
@@ -39,7 +41,7 @@ class Requests extends Controller
         ]);
     }
 
-    public function approve($id)
+    public function approve($id, Request $request)
     {
         $r = \App\Models\Request::query()->findOrFail($id)
             ->update(
@@ -47,6 +49,11 @@ class Requests extends Controller
                     'status' => 'ACCEPTED'
                 ]
             );
+
+        $req = \App\Models\Request::query()->findOrFail($id);
+
+        Mail::to($request->user()->email)->send(new RequestApproved($req));
+
         return redirect(route('requests.manage'));
     }
 
