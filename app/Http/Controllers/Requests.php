@@ -52,7 +52,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($request->user()->email)->send(new RequestApproved($req));
+        Mail::to($req->User->email)->send(new RequestApproved($req));
 
         return redirect(route('requests.manage'));
     }
