@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->text('image_url')->nullable();
             $table->integer('category_id');
+            $table->string('collect_location')->nullable();
             $table->timestamps();
         });
     }
