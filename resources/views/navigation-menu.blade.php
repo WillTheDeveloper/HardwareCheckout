@@ -42,6 +42,11 @@
                             {{ __('All requests') }}
                         </x-jet-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('category.all') }}" :active="request()->routeIs('category.all')">
+                            {{ __('Categories') }}
+                        </x-jet-nav-link>
+                    </div>
                 @endif
 
             </div>
