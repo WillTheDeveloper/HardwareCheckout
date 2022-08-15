@@ -2,10 +2,6 @@
 
 _Inspiration and credit goes to the [original project](https://github.com/techx/cog)._
 
-## Concept
-
-*Work in progress*
-
 ## Features
 
 - Inventory management
@@ -61,5 +57,3 @@ _Inspiration and credit goes to the [original project](https://github.com/techx/
 23. Compile assets by ```npm run dev```
 24. Start the server: ```php artisan serve```
 25. Visit your server on http://localhost:8000
-
-## Database
