@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\RequestApproved;
 use App\Mail\RequestMade;
+use App\Mail\RequestRejected;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -72,6 +73,11 @@ class Requests extends Controller
                     'status' => 'DECLINED'
                 ]
             );
+
+        $req = \App\Models\Request::query()->findOrFail($id);
+
+        Mail::to($req->User->email)->send(new RequestRejected($req));
+
         return redirect(route('requests.manage'));
     }
 

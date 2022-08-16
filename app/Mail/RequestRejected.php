@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,9 +17,12 @@ class RequestRejected extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $req;
+
+    public function __construct(Request $request)
     {
-        //
+        $this->req = $request;
     }
 
     /**
