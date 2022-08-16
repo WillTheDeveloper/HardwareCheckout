@@ -10,5 +10,5 @@ View my requests
 @endcomponent
 
 Thanks,<br>
-Checkout Support Team
+Hardware Checkout Support Team
 @endcomponent

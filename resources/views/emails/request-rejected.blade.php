@@ -1,12 +1,14 @@
 @component('mail::message')
-# Introduction
+# Request rejected for {{$req->Inventory->name}}
 
-The body of your message.
+This is a notification that your request was rejected, sorry.
 
-@component('mail::button', ['url' => ''])
-Button Text
+You can request this item again at any time if you wish.
+
+@component('mail::button', ['url' => route('requests')])
+View my requests
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Hardware Checkout Support Team
 @endcomponent
