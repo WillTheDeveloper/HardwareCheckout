@@ -31,6 +31,6 @@ class RequestMade extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.request_made');
+        return $this->markdown('emails.request-made');
     }
 }
