@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\RequestApproved;
+use App\Mail\RequestMade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -29,6 +30,11 @@ class Requests extends Controller
                 'status' => "PENDING"
             ]
         );
+
+        $req = \App\Models\Request::query()->findOrFail($id);
+
+        Mail::to($req->User->email)->send(new RequestMade($req));
+
         return redirect(route('requests'));
     }
 

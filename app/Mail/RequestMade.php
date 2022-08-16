@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,9 +17,11 @@ class RequestMade extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $req;
+
+    public function __construct(Request $request)
     {
-        //
+        $this->req = $request;
     }
 
     /**
@@ -28,6 +31,6 @@ class RequestMade extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.request_made');
+        return $this->markdown('emails.request_made');
     }
 }
