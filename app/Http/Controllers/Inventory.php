@@ -40,6 +40,13 @@ class Inventory extends Controller
         return redirect(route('inventory.manage'));
     }
 
+    public function management($id) {
+        return view('manageitem',
+            [
+                'item' => \App\Models\Inventory::query()->findOrFail($id)
+            ]);
+    }
+
     public function manage()
     {
         return view('allinventory', [
