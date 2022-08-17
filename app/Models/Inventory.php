@@ -9,6 +9,20 @@ class Inventory extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'quantity',
+        'image_url',
+        'category_id',
+        'collect_location'
+    ];
+
+    protected $casts = [
+        'quantity' => 'integer',
+        'category_id' => 'integer'
+    ];
+
     public function Category()
     {
         return $this->belongsTo(Category::class);

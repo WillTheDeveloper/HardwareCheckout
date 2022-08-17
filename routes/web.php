@@ -23,7 +23,9 @@ Route::get('/', function () {
 
 Route::get('/inventory', [Inventory::class, 'view'])->name('inventory');
 Route::get('/inventory/manage', [Inventory::class, 'manage'])->name('inventory.manage');
+Route::get('/inventory/new', [Inventory::class, 'new'])->name('inventory.new');
 Route::post('/inventory/request/{id}', [Requests::class, 'make'])->name('inventory.request');
+Route::post('/inventory/create', [Inventory::class, 'create'])->name('inventory.create');
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');
 Route::get('/requests/manage', [Requests::class, 'manage'])->name('requests.manage');
