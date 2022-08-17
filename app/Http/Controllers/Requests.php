@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Mail\RequestApproved;
+use App\Mail\RequestLate;
 use App\Mail\RequestMade;
 use App\Mail\RequestRejected;
+use App\Mail\RequestReturned;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -100,6 +102,11 @@ class Requests extends Controller
                     'status' => 'LATE'
                 ]
             );
+
+        $req = \App\Models\Request::query()->findOrFail($id);
+
+        Mail::to($req->User->email)->send(new RequestLate($req));
+
         return redirect(route('requests.manage'));
     }
 
@@ -111,6 +118,11 @@ class Requests extends Controller
                     'status' => 'RETURNED'
                 ]
             );
+
+        $req = \App\Models\Request::query()->findOrFail($id);
+
+        Mail::to($req->User->email)->send(new RequestReturned($req));
+
         return redirect(route('requests.manage'));
     }
 }
