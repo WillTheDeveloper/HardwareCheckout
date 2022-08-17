@@ -36,7 +36,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($req->User->email)->send(new RequestMade($req));
+        Mail::to($req->User->email)->send(new RequestMade($req->get()));
 
         return redirect(route('requests'));
     }
@@ -62,7 +62,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($req->User->email)->send(new RequestApproved($req));
+        Mail::to($req->User->email)->send(new RequestApproved($req->get()));
 
         return redirect(route('requests.manage'));
     }
@@ -78,7 +78,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($req->User->email)->send(new RequestRejected($req));
+        Mail::to($req->User->email)->send(new RequestRejected($req->get()));
 
         return redirect(route('requests.manage'));
     }
@@ -105,7 +105,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($req->User->email)->send(new RequestLate($req));
+        Mail::to($req->User->email)->send(new RequestLate($req->get()));
 
         return redirect(route('requests.manage'));
     }
@@ -121,7 +121,7 @@ class Requests extends Controller
 
         $req = \App\Models\Request::query()->findOrFail($id);
 
-        Mail::to($req->User->email)->send(new RequestReturned($req));
+        Mail::to($req->User->email)->send(new RequestReturned($req->get()));
 
         return redirect(route('requests.manage'));
     }
