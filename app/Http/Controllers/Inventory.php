@@ -35,7 +35,7 @@ class Inventory extends Controller
             ]
         );
 
-//        Session::flash('status', 'success');
+        Session::flash('create', 'success');
 
         return redirect(route('inventory.manage'));
     }
