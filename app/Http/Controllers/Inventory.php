@@ -30,11 +30,12 @@ class Inventory extends Controller
     public function history($id)
     {
         return view('itemhistory', [
+            'item' => \App\Models\Inventory::query()->findOrFail($id),
             'data' => \App\Models\Request::query()
                 ->where('inventory_id', $id)
-                ->where('status', ['RETURNED'])
+                ->where('status', 'RETURNED')
                 ->orderByDesc('created_at')
-                ->paginate(10)
+                ->paginate(10),
         ]);
     }
 
