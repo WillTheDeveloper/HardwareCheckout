@@ -22,6 +22,22 @@ class Inventory extends Controller
         ]);
     }
 
+    public function users($id)
+    {
+        return view('itemusers');
+    }
+
+    public function history($id)
+    {
+        return view('itemhistory', [
+            'data' => \App\Models\Request::query()
+                ->where('inventory_id', $id)
+                ->where('status', ['RETURNED'])
+                ->orderByDesc('created_at')
+                ->paginate(10)
+        ]);
+    }
+
     public function create(Request $request)
     {
         \App\Models\Inventory::query()->create(
