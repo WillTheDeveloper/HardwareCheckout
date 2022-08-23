@@ -24,7 +24,10 @@ class Inventory extends Controller
 
     public function users($id)
     {
-        return view('itemusers');
+        return view('itemusers', [
+            'item' => \App\Models\Inventory::query()->findOrFail($id),
+            'users' => \App\Models\Inventory::query()->select('user_id')
+        ]);
     }
 
     public function history($id)
