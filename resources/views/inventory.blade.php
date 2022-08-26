@@ -34,7 +34,7 @@
                                 <tr class="border-t border-gray-300">
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$i->name}}</td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->description}}</td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->quantity}}</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->quantity - $i->Request->sum('quantity')}}</td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <form method="post" action="{{route('inventory.request', $i->id)}}">
                                             @csrf
