@@ -21,6 +21,22 @@ class Category extends Controller
         ]);
     }
 
+    public function new()
+    {
+        return view('newcategory');
+    }
+
+    public function create(Request $request)
+    {
+        $c = \App\Models\Category::query()->create(
+            [
+                'category' => $request->input('category')
+            ]
+        );
+
+        return redirect(route('category.all'));
+    }
+
     public function view($id) // Not sure why I have this, might delete later //
     {
         return view('category', [

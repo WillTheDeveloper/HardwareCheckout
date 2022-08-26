@@ -46,5 +46,7 @@ Route::get('/users', [Users::class, 'view'])->name('users.view');
 Route::get('/users/{id}/details', [Users::class, 'details'])->name('users.details');
 
 Route::get('/categories', [Category::class, 'all'])->name('category.all');
+Route::get('/categories/new', [Category::class, 'new'])->name('category.new');
+Route::post('/categories/create', [Category::class, 'create'])->name('category.create');
 Route::get('/categories/{id}/view', [Category::class, 'view'])->name('category.view');
 Route::get('/categories/{id}/edit', [Category::class, 'edit'])->name('category.edit');
