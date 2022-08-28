@@ -56,7 +56,7 @@
 
                                     <div class="grid grid-cols-3 gap-6">
                                         <div class="col-span-3 sm:col-span-2">
-                                            <label for="company-website" class="block text-sm font-medium text-gray-700"> Username </label>
+                                            <label for="company-website" class="block text-sm font-medium text-gray-700"> Item </label>
                                             <div class="mt-1 rounded-md shadow-sm flex">
                                                 <span class="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm"> workcation.com/ </span>
                                                 <input type="text" name="username" id="username" autocomplete="username" class="focus:ring-indigo-500 focus:border-indigo-500 flex-grow block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300">
@@ -64,7 +64,7 @@
                                         </div>
 
                                         <div class="col-span-3">
-                                            <label for="about" class="block text-sm font-medium text-gray-700"> About </label>
+                                            <label for="about" class="block text-sm font-medium text-gray-700"> Description </label>
                                             <div class="mt-1">
                                                 <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
                                             </div>
