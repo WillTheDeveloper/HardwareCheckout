@@ -34,7 +34,7 @@
                         <div class="mt-5 space-y-6 md:mt-0 md:col-span-2">
                             <div class="grid grid-cols-3 gap-6">
                                 <div class="col-span-3 sm:col-span-2">
-                                    <label for="company-website" class="block text-sm font-medium text-gray-700"> Name of category </label>
+                                    <label for="category" class="block text-sm font-medium text-gray-700"> Name of category </label>
                                     <div class="mt-1 flex rounded-md shadow-sm">
 {{--                                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"> http:// </span>--}}
                                         <input type="text" name="category" id="category" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
