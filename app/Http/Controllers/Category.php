@@ -51,8 +51,13 @@ class Category extends Controller
             ->select('id')
             ->delete();
 
-        /*\App\Models\Request::query()
-            ->where('')*/
+        $inv = \App\Models\Inventory::query()
+            ->where('category_id', $id)
+            ->select('id');
+
+        \App\Models\Request::query()
+            ->where('user_id', auth()->id())
+            ->where('inventory_id', $inv)->delete();
 
         return redirect(route('category.view', $id));
     }
