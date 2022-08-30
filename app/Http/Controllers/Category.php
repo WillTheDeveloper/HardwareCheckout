@@ -57,12 +57,12 @@ class Category extends Controller
         return redirect(route('category.view', $id));
     }
 
-    public function reassignview()
+    public function reassignview($id)
     {
 
     }
 
-    public function reassignaction()
+    public function reassignaction($id)
     {
 
     }
