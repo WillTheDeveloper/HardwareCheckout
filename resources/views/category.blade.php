@@ -82,7 +82,7 @@
                                                                 <tbody class="divide-y divide-gray-200 bg-white">
                                                                 @foreach($data->Inventory as $i)
                                                                 <tr>
-                                                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$i->name}}</td>
+                                                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><a href="{{route('inventory.manage-id', $i->id)}}">{{$i->name}}</a></td>
                                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->quantity}}</td>
                                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->description}}</td>
                                                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$i->collect_location}}</td>
