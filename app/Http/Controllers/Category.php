@@ -43,4 +43,27 @@ class Category extends Controller
             'data' => \App\Models\Category::query()->findOrFail($id)
         ]);
     }
+
+    public function deleteAllAssociated($id)
+    {
+        \App\Models\Inventory::query()
+            ->where('category_id', $id)
+            ->select('id')
+            ->delete();
+
+        /*\App\Models\Request::query()
+            ->where('')*/
+
+        return redirect(route('category.view', $id));
+    }
+
+    public function reassignview()
+    {
+
+    }
+
+    public function reassignaction()
+    {
+
+    }
 }
