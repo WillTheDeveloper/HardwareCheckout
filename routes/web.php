@@ -29,6 +29,7 @@ Route::get('/inventory/users/{id}', [Inventory::class, 'users'])->name('inventor
 Route::get('/inventory/history/{id}', [Inventory::class, 'history'])->name('inventory.history-id');
 Route::post('/inventory/request/{id}', [Requests::class, 'make'])->name('inventory.request');
 Route::post('/inventory/create', [Inventory::class, 'create'])->name('inventory.create');
+Route::post('/inventory/{id}/update', [Inventory::class, 'update'])->name('inventory.update');
 
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');

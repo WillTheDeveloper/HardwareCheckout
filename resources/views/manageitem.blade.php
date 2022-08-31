@@ -46,7 +46,8 @@
                     </aside>
 
                     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-                        <form action="#" method="POST">
+                        <form action="{{route('inventory.update', $item->id)}}" method="POST">
+                            @csrf
                             <div class="shadow sm:rounded-md sm:overflow-hidden">
                                 <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                                     <div>
@@ -69,6 +70,31 @@
                                                 <textarea id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$item->description}}</textarea>
                                             </div>
                                             <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
+                                        </div>
+
+                                        <div>
+                                            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                                            <select id="category" name="category" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                                @foreach($categories as $c)
+                                                    <option @selected(old('category', $c->id) == $c->id) value="{{$c->id}}">{{$c->category}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-span-3 sm:col-span-2">
+                                            <label for="image" class="block text-sm font-medium text-gray-700"> Image URL </label>
+                                            <div class="mt-1 rounded-md shadow-sm flex">
+                                                {{--                                                <span class="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm"> workcation.com/ </span>--}}
+                                                <input value="{{$item->image_url}}" type="text" name="image" id="image" autocomplete="image" placeholder="Nullable" class="focus:ring-indigo-500 focus:border-indigo-500 flex-grow block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-span-3 sm:col-span-2">
+                                            <label for="collection" class="block text-sm font-medium text-gray-700"> Collection location </label>
+                                            <div class="mt-1 rounded-md shadow-sm flex">
+                                                {{--                                                <span class="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm"> workcation.com/ </span>--}}
+                                                <input value="{{$item->collect_location}}" type="text" name="collection" id="collection" autocomplete="collection" class="focus:ring-indigo-500 focus:border-indigo-500 flex-grow block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+                                            </div>
                                         </div>
 
                                     </div>

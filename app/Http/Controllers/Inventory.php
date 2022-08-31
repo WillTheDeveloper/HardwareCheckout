@@ -61,9 +61,11 @@ class Inventory extends Controller
     }
 
     public function management($id) {
+        $current = \App\Models\Inventory::query()->find($id)->category_id;
         return view('manageitem',
             [
-                'item' => \App\Models\Inventory::query()->findOrFail($id)
+                'item' => \App\Models\Inventory::query()->findOrFail($id),
+                'categories' => \App\Models\Category::query()->get()
             ]);
     }
 
@@ -72,5 +74,22 @@ class Inventory extends Controller
         return view('allinventory', [
             'data' => \App\Models\Inventory::query()->orderByDesc('name')->paginate(15),
         ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        \App\Models\Inventory::find($id)->update(
+            [
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'image_url' => $request->input('image'),
+                'collect_location' => $request->input('collection'),
+                'category_id' => $request->input('category'),
+            ]
+        );
+
+        Session::flash('success');
+
+        return redirect(route('inventory.manage-id', $id));
     }
 }
