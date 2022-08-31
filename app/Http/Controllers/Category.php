@@ -69,8 +69,16 @@ class Category extends Controller
         ]);
     }
 
-    public function reassignaction($id)
+    public function reassignaction($id, Request $request)
     {
+        $new = $request->input('category');
 
+        \App\Models\Inventory::query()
+            ->where('category_id', $id)
+            ->update([
+                'category_id' => $new
+            ]);
+
+        return redirect(route('category.view', $new));
     }
 }
