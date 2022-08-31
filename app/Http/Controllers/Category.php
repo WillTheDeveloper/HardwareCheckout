@@ -66,6 +66,7 @@ class Category extends Controller
     {
         return view('reassignitem', [
             'categories' => \App\Models\Category::query()->get()->except($id),
+            'current' => \App\Models\Category::query()->findOrFail($id)
         ]);
     }
 
