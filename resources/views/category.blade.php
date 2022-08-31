@@ -75,11 +75,11 @@
                                         </div>
 
                                         <div>
-                                            <label for="about" class="block text-sm font-medium text-gray-700">About</label>
+                                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                                             <div class="mt-1">
-                                                <textarea id="about" name="about" rows="3" class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="you@example.com"></textarea>
+                                                <textarea id="description" name="description" rows="3" class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="you@example.com"></textarea>
                                             </div>
-                                            <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
+                                            <p class="mt-2 text-sm text-gray-500">Brief description of this category. This is <b>nullable</b>.</p>
                                         </div>
                                     <div class="px-4 text-right sm:px-3">
                                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
@@ -172,16 +172,37 @@
                                             <legend class="sr-only">Associated item actions</legend>
                                             <div class="text-base font-medium text-gray-900" aria-hidden="true">Associated item actions</div>
                                             <p class="text-sm text-gray-500">These actions only affect the items listed above and <b>not</b> this category.</p>
-                                            <div class="mt-4 space-y-4">
-                                                <!-- This example requires Tailwind CSS v2.0+ -->
-                                                <span class="relative z-0 inline-flex rounded-md shadow-sm">
-                                                    <a href="{{route('categories-id.reassign', $data->id)}}" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Reassign</a>
-                                                    <form action="{{route('categories.delete.all', $data->id)}}" method="post">
-                                                        @csrf
-                                                        <button type="submit" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Delete all</button>
-                                                    </form>
-                                                </span>
-                                            </div>
+                                            @if($data->Inventory->count() > 0)
+                                                <div class="mt-4 space-y-4">
+                                                    <!-- This example requires Tailwind CSS v2.0+ -->
+                                                    <span class="relative z-0 inline-flex rounded-md shadow-sm">
+                                                        <a href="{{route('categories-id.reassign', $data->id)}}" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Reassign</a>
+                                                        <form action="{{route('categories.delete.all', $data->id)}}" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Delete all</button>
+                                                        </form>
+                                                    </span>
+                                                </div>
+                                            @else
+                                                <div class="pt-3">
+                                                    <div class="rounded-md bg-yellow-50 p-4">
+                                                        <div class="flex">
+                                                            <div class="flex-shrink-0">
+                                                                <!-- Heroicon name: mini/exclamation-triangle -->
+                                                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                    <path fill-rule="evenodd" d="M8.485 3.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 3.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="ml-3">
+                                                                <h3 class="text-sm font-medium text-yellow-800">Action required</h3>
+                                                                <div class="mt-2 text-sm text-yellow-700">
+                                                                    <p>In order to take action on associated items, an item must be associated with this category for these options to become available.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </fieldset>
                                         <fieldset>
                                             <legend class="contents text-base font-medium text-gray-900">Delete Category</legend>

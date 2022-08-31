@@ -92,4 +92,9 @@ class Category extends Controller
 
         return redirect(route('category.all'));
     }
+
+    public function update($id)
+    {
+
+    }
 }
