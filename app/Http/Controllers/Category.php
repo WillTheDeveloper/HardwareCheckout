@@ -93,8 +93,13 @@ class Category extends Controller
         return redirect(route('category.all'));
     }
 
-    public function update($id)
+    public function update($id, Request $request)
     {
+        \App\Models\Category::query()->find($id)->update([
+            'category' => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
 
+        return redirect(route('category.view', $id));
     }
 }
