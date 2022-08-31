@@ -133,8 +133,14 @@ class Requests extends Controller
         ]);
     }
 
-    public function update($id)
+    public function update($id, Request $request)
     {
+        \App\Models\Request::query()->findOrFail($id)
+            ->update([
+                'quantity' => $request->input('quantity'),
+                'note' => $request->input('note')
+            ]);
 
+        return redirect(route('requests.properties', $id));
     }
 }
