@@ -125,4 +125,16 @@ class Requests extends Controller
 
         return redirect(route('requests.manage'));
     }
+
+    public function properties($id)
+    {
+        return view('editrequest', [
+            'request' => \App\Models\Request::findOrFail($id)
+        ]);
+    }
+
+    public function update($id)
+    {
+
+    }
 }
