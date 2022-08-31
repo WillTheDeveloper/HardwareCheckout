@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Category extends Controller
 {
@@ -79,6 +80,8 @@ class Category extends Controller
             ->update([
                 'category_id' => $new
             ]);
+
+        Session::flash('success');
 
         return redirect(route('category.view', $new));
     }
