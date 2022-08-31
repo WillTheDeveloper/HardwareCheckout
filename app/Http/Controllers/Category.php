@@ -100,6 +100,8 @@ class Category extends Controller
             'description' => $request->input('description')
         ]);
 
+        Session::flash('success');
+
         return redirect(route('category.view', $id));
     }
 }
