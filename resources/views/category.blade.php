@@ -187,31 +187,37 @@
                                             <legend class="contents text-base font-medium text-gray-900">Delete Category</legend>
                                             <p class="text-sm text-gray-500">This action can not be undone.</p>
 
-                                            <div class="p-4">
-                                                <div class="rounded-md bg-yellow-50 p-4">
-                                                    <div class="flex">
-                                                        <div class="flex-shrink-0">
-                                                            <!-- Heroicon name: mini/exclamation-triangle -->
-                                                            <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd" d="M8.485 3.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 3.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                                                            </svg>
-                                                        </div>
-                                                        <div class="ml-3">
-                                                            <h3 class="text-sm font-medium text-yellow-800">Action required</h3>
-                                                            <div class="mt-2 text-sm text-yellow-700">
-                                                                <p>In order to delete the category, you are required to either reallocate the items to another category or truncate/delete all the associated data of the category along with the category itself.</p>
+                                            @if($data->Inventory->count() > 0)
+                                                <div class="p-4">
+                                                    <div class="rounded-md bg-yellow-50 p-4">
+                                                        <div class="flex">
+                                                            <div class="flex-shrink-0">
+                                                                <!-- Heroicon name: mini/exclamation-triangle -->
+                                                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                    <path fill-rule="evenodd" d="M8.485 3.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 3.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="ml-3">
+                                                                <h3 class="text-sm font-medium text-yellow-800">Action required</h3>
+                                                                <div class="mt-2 text-sm text-yellow-700">
+                                                                    <p>In order to delete the category, you are required to either reallocate the items to another category or truncate/delete all the associated data of the category along with the category itself.</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
 
-                                            <div class="mt-4 space-y-4">
-                                                <span class="relative z-0 inline-flex rounded-md shadow-sm">
-                                                  <button type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Delete Category</button>
-                                                  <button type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Delete Category and Items</button>
-                                                </span>
-                                            </div>
+                                            @if($data->Inventory->count() == 0)
+                                                <div class="mt-4 space-y-4">
+                                                    <span class="relative z-0 inline-flex rounded-md shadow-sm">
+                                                        <form method="post" action="{{route('category-delete', $data->id)}}">
+                                                            @csrf
+                                                            <button type="submit" class="relative inline-flex items-center rounded-md border border-red-300 bg-white px-4 py-2 text-sm font-medium text-red-700 hover:bg-red-50 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">Delete Category</button>
+                                                        </form>
+                                                    </span>
+                                                </div>
+                                            @endif
                                         </fieldset>
                                     </div>
                                 </div>

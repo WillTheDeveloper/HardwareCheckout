@@ -85,4 +85,11 @@ class Category extends Controller
 
         return redirect(route('category.view', $new));
     }
+
+    public function deleteCategory($id)
+    {
+        \App\Models\Category::query()->findOrFail($id)->delete();
+
+        return redirect(route('category.all'));
+    }
 }

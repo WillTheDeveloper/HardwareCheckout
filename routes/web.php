@@ -53,3 +53,4 @@ Route::get('/categories/{id}/edit', [Category::class, 'edit'])->name('category.e
 Route::get('/categories/{id}/reassign/verify', [Category::class, 'reassignview'])->name('categories-id.reassign');
 Route::post('/categories/{id}/reassign/confirmed', [Category::class, 'reassignaction'])->name('categories-id.reassign.confirmed');
 Route::post('/categories/{id}/delete/all', [Category::class, 'deleteAllAssociated'])->name('categories.delete.all');
+Route::post('/categories/{id}/delete', [Category::class, 'deleteCategory'])->name('category-delete');
