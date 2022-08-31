@@ -64,7 +64,9 @@ class Category extends Controller
 
     public function reassignview($id)
     {
-
+        return view('reassignitem', [
+            'categories' => \App\Models\Category::query()->get()->except($id),
+        ]);
     }
 
     public function reassignaction($id)
