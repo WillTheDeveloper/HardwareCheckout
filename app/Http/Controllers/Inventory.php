@@ -85,6 +85,7 @@ class Inventory extends Controller
                 'image_url' => $request->input('image'),
                 'collect_location' => $request->input('collection'),
                 'category_id' => $request->input('category'),
+                'quantity' => $request->input('quantity')
             ]
         );
 

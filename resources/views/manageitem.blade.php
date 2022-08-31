@@ -90,6 +90,14 @@
                                         </div>
 
                                         <div class="col-span-3 sm:col-span-2">
+                                            <label for="quantity" class="block text-sm font-medium text-gray-700"> Quantity </label>
+                                            <div class="mt-1 rounded-md shadow-sm flex">
+                                                {{--                                                <span class="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm"> workcation.com/ </span>--}}
+                                                <input value="{{$item->quantity}}" type="number" min="1" name="quantity" id="quantity" autocomplete="quantity" placeholder="xxx" class="focus:ring-indigo-500 focus:border-indigo-500 flex-grow block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-span-3 sm:col-span-2">
                                             <label for="collection" class="block text-sm font-medium text-gray-700"> Collection location </label>
                                             <div class="mt-1 rounded-md shadow-sm flex">
                                                 {{--                                                <span class="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm"> workcation.com/ </span>--}}
