@@ -47,6 +47,8 @@ Route::get('/requests/{id}/edit', [Requests::class, 'edit'])->name('requests.edi
 
 Route::get('/users', [Users::class, 'view'])->name('users.view');
 Route::get('/users/{id}/details', [Users::class, 'details'])->name('users.details');
+Route::post('/users/{id}/admin/enable', [Users::class, 'makeAdmin'])->name('users.admin.enable');
+Route::post('/users/{id}/admin/disable', [Users::class, 'removeAdmin'])->name('users.admin.disable');
 
 Route::get('/categories', [Category::class, 'all'])->name('category.all');
 Route::get('/categories/new', [Category::class, 'new'])->name('category.new');
