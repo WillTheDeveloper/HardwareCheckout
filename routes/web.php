@@ -34,6 +34,7 @@ Route::post('/inventory/{id}/update', [Inventory::class, 'update'])->name('inven
 
 Route::get('/requests', [Requests::class, 'view'])->name('requests');
 Route::get('/requests/manage', [Requests::class, 'manage'])->name('requests.manage');
+Route::get('/requests/{id}/overview', [Requests::class, 'overview'])->name('requests.overview');
 Route::get('/requests/{id}/view', [Requests::class, 'properties'])->name('requests.properties');
 Route::post('/requests/{id}/update', [Requests::class, 'update'])->name('requests.update');
 Route::post('/requests/{id}/approve', [Requests::class, 'approve'])->name('requests.approve');

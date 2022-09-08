@@ -143,4 +143,11 @@ class Requests extends Controller
 
         return redirect(route('requests.properties', $id));
     }
+
+    public function overview($id)
+    {
+        return view('managerequest', [
+            'data' => \App\Models\Request::query()->findOrFail($id),
+        ]);
+    }
 }
