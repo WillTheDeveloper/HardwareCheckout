@@ -99,7 +99,7 @@
                                             <div class="col-span-3 sm:col-span-2">
                                                 <label for="company-website" class="block text-sm font-medium text-gray-700">Website</label>
                                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                                    <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">http://</span>
+                                                    <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">https://</span>
                                                     <input type="text" name="company-website" id="company-website" class="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="www.example.com">
                                                 </div>
                                             </div>
@@ -181,7 +181,7 @@
                                                     </div>
                                                     <div class="ml-3 text-sm">
                                                         <label for="comments" class="font-medium text-gray-700">Comments</label>
-                                                        <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+                                                        <p class="text-gray-500">Get notified when someone's posts a comment on a posting.</p>
                                                     </div>
                                                 </div>
                                                 <div class="flex items-start">
