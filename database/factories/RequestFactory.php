@@ -17,7 +17,7 @@ class RequestFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => '201',
+            'user_id' => User::query()->get('id')->random(),
             'inventory_id' => Inventory::query()->get('id')->random(),
             'quantity' => $this->faker->numberBetween(1, 5),
             'status' => $this->faker->randomElement(["ACTIVE", "PENDING", "DECLINED", "LATE", "ACCEPTED", "RETURNED"])
