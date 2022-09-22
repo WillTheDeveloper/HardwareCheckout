@@ -11,6 +11,19 @@
             <div class="mt-8 flex flex-col">
                 <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+
+                        <form>
+                            <div class="pb-5">
+                                <label for="search" class="block text-sm font-medium text-gray-700">Quick search</label>
+                                <div class="relative mt-1 flex items-center">
+                                    <input type="text" name="search" id="search" class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+                                        <kbd class="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">⌘K</kbd>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
                         <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                             <table class="min-w-full">
                                 <thead class="bg-white">
