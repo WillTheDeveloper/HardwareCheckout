@@ -10,7 +10,7 @@ class Users extends Controller
     public function view()
     {
         return view('users', [
-            'data' => User::query()->paginate(15)
+            'data' => User::query()->orderBy('name')->paginate(25)
         ]);
     }
 
