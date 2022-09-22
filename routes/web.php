@@ -49,6 +49,7 @@ Route::get('/requests/{id}/edit', [Requests::class, 'edit'])->name('requests.edi
 
 Route::get('/users', [Users::class, 'view'])->name('users.view');
 Route::get('/users/{id}/details', [Users::class, 'details'])->name('users.details');
+Route::get('/users/search', [Users::class, 'search'])->name('users.search');
 Route::post('/users/{id}/admin/enable', [Users::class, 'makeAdmin'])->name('users.admin.enable');
 Route::post('/users/{id}/admin/disable', [Users::class, 'removeAdmin'])->name('users.admin.disable');
 

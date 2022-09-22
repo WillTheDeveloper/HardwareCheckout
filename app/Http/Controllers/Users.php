@@ -14,6 +14,13 @@ class Users extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        return view('usersearch', [
+            'results' => User::search($request->input('search'))->get()
+        ]);
+    }
+
     public function details($id)
     {
         return view('userdetails', [
