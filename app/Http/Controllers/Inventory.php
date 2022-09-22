@@ -14,6 +14,13 @@ class Inventory extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        return view('inventorysearch', [
+            'results' => \App\Models\Inventory::search($request->input('search'))->get()
+        ]);
+    }
+
     public function new()
     {
         return view('newinventory', [
