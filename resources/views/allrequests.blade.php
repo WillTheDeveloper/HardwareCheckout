@@ -53,6 +53,10 @@
                                         </tr>
                                     @endforeach
 
+                                    <tr>
+                                        <th colspan="5" scope="colgroup" class="bg-purple-50 font-normal text-purple-900 px-6 py-3">{{$accepted->links()}}</th>
+                                    </tr>
+
                                     <tr class="border-t border-gray-200">
                                         <th colspan="5" scope="colgroup" class="bg-red-50 px-4 py-2 text-left text-sm font-semibold text-red-900 sm:px-6">Late</th>
                                     </tr>
@@ -74,10 +78,15 @@
                                         </tr>
                                     @endforeach
 
+                                    <tr>
+                                        <th colspan="5" scope="colgroup" class="bg-red-50 font-normal text-red-900 px-6 py-3">{{$late->links()}}</th>
+                                    </tr>
+
 
                                     <tr class="border-t border-gray-200">
                                         <th colspan="5" scope="colgroup" class="bg-green-50 px-4 py-2 text-left text-sm font-semibold text-green-900 sm:px-6">Active</th>
                                     </tr>
+
 
                                     @foreach($active as $a)
                                     <tr class="border-t border-gray-300">
@@ -100,6 +109,10 @@
                                         </td>
                                     </tr>
                                     @endforeach
+
+                                    <tr>
+                                        <th colspan="5" scope="colgroup" class="bg-green-50 font-normal text-green-900 px-6 py-3">{{$active->links()}}</th>
+                                    </tr>
 
 
                                     <tr class="border-t border-gray-200">
@@ -128,6 +141,10 @@
                                         </td>
                                     </tr>
                                     @endforeach
+
+                                    <tr>
+                                        <th colspan="5" scope="colgroup" class="bg-amber-50 font-normal text-amber-900 px-6 py-3">{{$pending->links()}}</th>
+                                    </tr>
 
                                     <!-- More people... -->
                                     </tbody>
