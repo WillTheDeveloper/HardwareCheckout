@@ -10,7 +10,7 @@ class Category extends Controller
     public function all()
     {
         return view('categories', [
-            'data' => \App\Models\Category::query()->orderByDesc('category')->get()
+            'data' => \App\Models\Category::query()->orderBy('category')->paginate(20)
         ]);
     }
 

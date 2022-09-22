@@ -41,6 +41,11 @@
                                     <!-- More people... -->
                                     </tbody>
                                 </table>
+
+                                <div class="px-6 py-2">
+                                    {{$data->links()}}
+                                </div>
+
                             </div>
                         </div>
                     </div>
