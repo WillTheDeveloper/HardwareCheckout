@@ -50,12 +50,12 @@
                                 </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">
-                                @foreach(auth()->user()->Request()->where('status', 'ACTIVE')->orWhere('status', 'LATE')->get('*') as $r)
+                                @foreach($requests as $r)
                                 <tr>
-                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0">{{$r->Inventory->name}}</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->quantity}}</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->created_at->diffForHumans()}}</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">{{$r->status}}</td>
+                                    <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0">{{$r->Inventory->name}}</td>
+                                    <td class="py-4 px-3 text-sm text-gray-500">{{$r->quantity}}</td>
+                                    <td class="py-4 px-3 text-sm text-gray-500">{{$r->created_at->diffForHumans()}}</td>
+                                    <td class="py-4 px-3 text-sm text-gray-500">{{$r->status}}</td>
                                 </tr>
                                 @endforeach
 
