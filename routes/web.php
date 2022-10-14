@@ -8,7 +8,7 @@ use App\Http\Controllers\Users;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', [Dashboard::class, 'view']);
+    Route::get('/dashboard', [Dashboard::class, 'view'])->name('dashboard');
 
     Route::get('/inventory', [Inventory::class, 'view'])->name('inventory');
     Route::get('/inventory/manage', [Inventory::class, 'manage'])->name('inventory.manage');
