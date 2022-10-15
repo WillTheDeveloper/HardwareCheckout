@@ -28,7 +28,7 @@
                                     <tbody class="divide-y divide-gray-200 bg-white">
                                     @foreach($data as $d)
                                     <tr>
-                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                        <td class="py-4 pl-4 pr-3 text-sm sm:pl-6">
                                             <div class="flex items-center">
                                                 <div class="h-10 w-10 flex-shrink-0">
                                                     <img class="h-10 w-10 rounded-full" src="{{$d->Inventory->image_url}}" alt="">
