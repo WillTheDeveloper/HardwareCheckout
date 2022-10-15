@@ -38,10 +38,14 @@ class Category extends Controller
         return redirect(route('category.all'));
     }
 
-    public function view($id) // Not sure why I have this, might delete later //
+    public function view($id)
     {
         return view('category', [
-            'data' => \App\Models\Category::query()->findOrFail($id)
+            'data' => \App\Models\Category::query()->findOrFail($id),
+            'inventory' => \App\Models\Inventory::query()
+                ->where('category_id', $id)
+                ->orderBy('name', 'asc')
+                ->paginate(5)
         ]);
     }
 
