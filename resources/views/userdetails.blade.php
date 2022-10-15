@@ -59,9 +59,7 @@
                                         <span class="ml-2 flex-1 w-0 truncate"> {{$r->Inventory->name}} </span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0 flex space-x-4">
-                                        <button type="button" class=" rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                                        <span class="text-gray-300" aria-hidden="true">|</span>
-                                        <button type="button" class=" rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Remove</button>
+                                        <a href="{{route('requests.properties', $r->id)}}" class=" rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Manage</a>
                                     </div>
                                 </li>
                                 @endforeach()
