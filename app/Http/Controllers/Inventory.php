@@ -10,7 +10,7 @@ class Inventory extends Controller
     public function view()
     {
         return view('inventory', [
-            'cat' => \App\Models\Category::query()->paginate(20)
+            'inventory' => \App\Models\Inventory::query()->orderBy('name', 'asc')->paginate(20)
         ]);
     }
 
