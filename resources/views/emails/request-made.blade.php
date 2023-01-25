@@ -1,10 +1,12 @@
 @component('mail::message')
-# Introduction
+# Request received
 
-The body of your message.
+An administrator will review your request soon.
 
-@component('mail::button', ['url' => ''])
-Button Text
+Whether its approved or declined, you will receive an email with information regarding next steps.
+
+@component('mail::button', ['url' => '')])
+View your request
 @endcomponent
 
 Thanks,<br>

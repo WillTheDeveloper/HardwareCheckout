@@ -1,10 +1,13 @@
 @component('mail::message')
-# Introduction
+# Request returned
 
-The body of your message.
+Thank you for returning your items.
 
-@component('mail::button', ['url' => ''])
-Button Text
+Items returned:
+- {{$req->Inventory->name}}
+
+@component('mail::button', ['url' => route('inventory')])
+View available inventory
 @endcomponent
 
 Thanks,<br>
