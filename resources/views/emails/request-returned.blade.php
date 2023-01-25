@@ -3,7 +3,7 @@
 
 Thank you for returning your items.
 
-Items returned:
+Item(s) returned:
 - {{$req->Inventory->name}}
 
 @component('mail::button', ['url' => route('inventory')])
