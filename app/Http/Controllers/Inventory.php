@@ -66,13 +66,16 @@ class Inventory extends Controller
         return redirect(route('inventory.manage'));
     }
 
-    public function management($id) {
+    public function management($id)
+    {
         $current = \App\Models\Inventory::query()->find($id)->category_id;
-        return view('manageitem',
+        return view(
+            'manageitem',
             [
                 'item' => \App\Models\Inventory::query()->findOrFail($id),
                 'categories' => \App\Models\Category::query()->get()
-            ]);
+            ]
+        );
     }
 
     public function manage()
